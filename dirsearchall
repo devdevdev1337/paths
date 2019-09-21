@@ -1,0 +1,111 @@
+#!/bin/bash
+
+#!/bin/bash
+domain=${1}
+filename=${2}
+
+Select_Run() {
+	echo -e "Available Wordlists\n"
+
+	echo -e "1- dirsearchall.txt"
+	echo -e "2- php-files-all-embad.txt"
+	echo -e "3- raft-all.txt"
+	echo -e "4- common-all.txt"
+	echo -e "5- directory-list-2.3-medium.txt"
+	echo -e "6- directory-list-2.3-small.txt"
+	echo -e "7- burp-parameter-names.txt"
+	echo -e "8- big.txt"
+	echo -e "9- content_discovery_all.txt"
+	echo -e "10- directory-list-2.3-medium.txt Ex: [asp,aspx,php,xml,jsp,zip,db,json,txt,html,js,htm]"
+	echo -e "11- directory-list-2.3-medium.txt EX: [log,nsf,pl,sh,sql,swf,xml,xhtml,docx,xls,conf]"
+	echo -e "12- directory-list-2.3-small.txt Ex: [log,nsf,pl,sh,sql,swf,xml,xhtml,docx,xls,conf]"
+	echo -e "13- directory-list-2.3-small.txt Ex: [asp,aspx,php,xml,jsp,zip,db,json,txt,html,js,htm]"
+	echo -e "14- directory-list-2.3-medium.txt Ex: [php, php1, php2 ]"
+	echo -e "15- Custom Wordlist & File Types\n"
+
+	echo "Select Wordlist Number: [/root/tools/SecLists/Discovery/Web-Content]: "
+	read -p "Select Wordlist Number: [/root/tools/SecLists/Discovery/Web-Content]: " wordlist
+
+	if [[ $wordlist == "1" ]]; then
+		python3 ~/tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/tools/SecLists/Discovery/Web-Content/dirsearchall.txt --plain-text-report=~/tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname
+	#/root/tools/SecLists/Discovery/Web-Content
+	fi
+
+	if [[ $wordlist == "2" ]]; then
+		python3 ~/tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/tools/SecLists/Discovery/Web-Contentphp-files-all-embad.txt --plain-text-report=~/tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+
+	fi
+
+	if [[ $wordlist == "3" ]]; then
+		python3 ~/tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/tools/SecLists/Discovery/Web-Contentraft-all.txt --plain-text-report=~/tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+
+	fi
+
+	if [[ $wordlist == "4" ]]; then
+		python3 ~/tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/tools/SecLists/Discovery/Web-Contentcommon-all.txt --plain-text-report=~/tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+
+	fi
+
+	if [[ $wordlist == "5" ]]; then
+		python3 ~/tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/tools/SecLists/Discovery/Web-Contentdirectory-list-2.3-medium.txt --plain-text-report=~/tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+
+	fi
+
+	if [[ $wordlist == "6" ]]; then
+		python3 ~/tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/tools/SecLists/Discovery/Web-Contentdirectory-list-2.3-small.txt --plain-text-report=~/tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+
+	fi
+
+	if [[ $wordlist == "7" ]]; then
+		python3 ~/tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/tools/SecLists/Discovery/Web-Contentburp-parameter-names.txt --plain-text-report=~/tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+
+	fi
+
+	if [[ $wordlist == "8" ]]; then
+		python3 ~/tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/tools/SecLists/Discovery/Web-Contentbig.txt --plain-text-report=~/tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+
+	fi
+
+	if [[ $wordlist == "9" ]]; then
+		python3 ~/tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/tools/SecLists/Discovery/Web-Contentcontent_discovery_all.txt --plain-text-report=~/tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+
+	fi
+
+	if [[ $wordlist == "10" ]]; then
+		python3 ~/tools/dirsearch/dirsearch.py -f -e asp,aspx,php,xml,jsp,zip,db,json,txt,html,js,htm -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/tools/SecLists/Discovery/Web-Contentdirectory-list-2.3-medium.txt --plain-text-report=~/tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+
+	fi
+
+	if [[ $wordlist == "11" ]]; then
+		python3 ~/tools/dirsearch/dirsearch.py -f -e log,nsf,pl,sh,sql,swf,xml,xhtml,docx,xls,conf -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/tools/SecLists/Discovery/Web-Contentdirectory-list-2.3-medium.txt --plain-text-report=~/tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+
+	fi
+
+	if [[ $wordlist == "12" ]]; then
+		python3 ~/tools/dirsearch/dirsearch.py -f -e asp,aspx,php,xml,jsp,zip,db,json,txt,html,js,htm -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/tools/SecLists/Discovery/Web-Contentdirectory-list-2.3-small.txt --plain-text-report=~/tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+
+	fi
+
+	if [[ $wordlist == "13" ]]; then
+		python3 ~/tools/dirsearch/dirsearch.py -f -e log,nsf,pl,sh,sql,swf,xml,xhtml,docx,xls,conf -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/tools/SecLists/Discovery/Web-Contentdirectory-list-2.3-small.txt --plain-text-report=~/tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+
+	fi
+
+	if [[ $wordlist == "14" ]]; then
+		python3 ~/tools/dirsearch/dirsearch.py -f -e php,php1,php2,php3,php4,php5,php6,php7 -x 503,520,429,400 -u $domain --wordlist /root/tools/SecLists/Discovery/Web-Contentdirectory-list-2.3-medium.txt --plain-text-report=~/tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+
+	fi
+
+	if [[ $wordlist == "15" ]]; then
+		echo "Enter Wordlist Name [/root/tools/SecLists/Discovery/Web-Content]:  "
+		read wordlist_var
+		echo "Enter Extension Types: "
+		read extension_var
+		python3 ~/tools/dirsearch/dirsearch.py -f -e $extension_var -x 503,520,429,400 -u $domain --wordlist /root/tools/SecLists/Discovery/Web-Content$wordlist_var --plain-text-report=~/tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+
+	fi
+
+}
+
+Select_Run
+
