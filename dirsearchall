@@ -1,5 +1,6 @@
 #!/bin/bash
-# by @Splint3r7
+
+#!/bin/bash
 domain=${1}
 filename=${2}
 
@@ -23,90 +24,90 @@ Select_Run() {
 	echo -e "15- directory-list-2.3-medium.txt Ex: [no -f]"
 	echo -e "16- Custom Wordlist & File Types\n"
 
-	echo "Select Wordlist Number: [/root/oscp_tools/SecLists/Discovery/Web-Content/]: "
-	read -p "Select Wordlist Number: [/root/oscp_tools/SecLists/Discovery/Web-Content/]: " wordlist
+	echo "Select Wordlist Number: [/opt/oscp_tools/SecLists/Discovery/Web-Content/]: "
+	read -p "Select Wordlist Number: [/opt/oscp_tools/SecLists/Discovery/Web-Content/]: " wordlist
 
 	if [[ $wordlist == "1" ]]; then
-		python3 ~/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/oscp_tools/SecLists/Discovery/Web-Content//dirsearchall.txt --plain-text-report=~/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname
-	#/root/oscp_tools/SecLists/Discovery/Web-Content/
+		python3 /opt/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /opt/oscp_tools/SecLists/Discovery/Web-Content//dirsearchall.txt --plain-text-report=/opt/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname
+	#/opt/oscp_tools/SecLists/Discovery/Web-Content/
 	fi
 
 	if [[ $wordlist == "2" ]]; then
-		python3 ~/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/oscp_tools/SecLists/Discovery/Web-Content/php-files-all-embad.txt --plain-text-report=~/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+		python3 /opt/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /opt/oscp_tools/SecLists/Discovery/Web-Content/php-files-all-embad.txt --plain-text-report=/opt/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
 
 	fi
 
 	if [[ $wordlist == "3" ]]; then
-		python3 ~/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/oscp_tools/SecLists/Discovery/Web-Content/raft-all.txt --plain-text-report=~/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+		python3 /opt/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /opt/oscp_tools/SecLists/Discovery/Web-Content/raft-all.txt --plain-text-report=/opt/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
 
 	fi
 
 	if [[ $wordlist == "4" ]]; then
-		python3 ~/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/oscp_tools/SecLists/Discovery/Web-Content/common-all.txt --plain-text-report=~/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+		python3 /opt/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /opt/oscp_tools/SecLists/Discovery/Web-Content/common-all.txt --plain-text-report=/opt/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
 
 	fi
 
 	if [[ $wordlist == "5" ]]; then
-		python3 ~/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/oscp_tools/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt --plain-text-report=~/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+		python3 /opt/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /opt/oscp_tools/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt --plain-text-report=/opt/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
 
 	fi
 
 	if [[ $wordlist == "6" ]]; then
-		python3 ~/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/oscp_tools/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt --plain-text-report=~/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+		python3 /opt/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /opt/oscp_tools/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt --plain-text-report=/opt/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
 
 	fi
 
 	if [[ $wordlist == "7" ]]; then
-		python3 ~/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/oscp_tools/SecLists/Discovery/Web-Content/burp-parameter-names.txt --plain-text-report=~/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+		python3 /opt/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /opt/oscp_tools/SecLists/Discovery/Web-Content/burp-parameter-names.txt --plain-text-report=/opt/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
 
 	fi
 
 	if [[ $wordlist == "8" ]]; then
-		python3 ~/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/oscp_tools/SecLists/Discovery/Web-Content/big.txt --plain-text-report=~/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+		python3 /opt/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /opt/oscp_tools/SecLists/Discovery/Web-Content/big.txt --plain-text-report=/opt/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
 
 	fi
 
 	if [[ $wordlist == "9" ]]; then
-		python3 ~/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/oscp_tools/SecLists/Discovery/Web-Content/content_discovery_all.txt --plain-text-report=~/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+		python3 /opt/oscp_tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,js,ini,html,log,txt,sql,zip,conf,cgi,json,jar,dll,xml -x 503,520,429,400,302,301,300 -u $domain --wordlist /opt/oscp_tools/SecLists/Discovery/Web-Content/content_discovery_all.txt --plain-text-report=/opt/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
 
 	fi
 
 	if [[ $wordlist == "10" ]]; then
-		python3 ~/oscp_tools/dirsearch/dirsearch.py -f -e asp,aspx,php,xml,jsp,zip,db,json,txt,html,js,htm -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/oscp_tools/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt --plain-text-report=~/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+		python3 /opt/oscp_tools/dirsearch/dirsearch.py -f -e asp,aspx,php,xml,jsp,zip,db,json,txt,html,js,htm -x 503,520,429,400,302,301,300 -u $domain --wordlist /opt/oscp_tools/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt --plain-text-report=/opt/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
 
 	fi
 
 	if [[ $wordlist == "11" ]]; then
-		python3 ~/oscp_tools/dirsearch/dirsearch.py -f -e log,nsf,pl,sh,sql,swf,xml,xhtml,docx,xls,conf -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/oscp_tools/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt --plain-text-report=~/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+		python3 /opt/oscp_tools/dirsearch/dirsearch.py -f -e log,nsf,pl,sh,sql,swf,xml,xhtml,docx,xls,conf -x 503,520,429,400,302,301,300 -u $domain --wordlist /opt/oscp_tools/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt --plain-text-report=/opt/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
 
 	fi
 
 	if [[ $wordlist == "12" ]]; then
-		python3 ~/oscp_tools/dirsearch/dirsearch.py -f -e asp,aspx,php,xml,jsp,zip,db,json,txt,html,js,htm -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/oscp_tools/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt --plain-text-report=~/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+		python3 /opt/oscp_tools/dirsearch/dirsearch.py -f -e asp,aspx,php,xml,jsp,zip,db,json,txt,html,js,htm -x 503,520,429,400,302,301,300 -u $domain --wordlist /opt/oscp_tools/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt --plain-text-report=/opt/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
 
 	fi
 
 	if [[ $wordlist == "13" ]]; then
-		python3 ~/oscp_tools/dirsearch/dirsearch.py -f -e log,nsf,pl,sh,sql,swf,xml,xhtml,docx,xls,conf -x 503,520,429,400,302,301,300 -u $domain --wordlist /root/oscp_tools/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt --plain-text-report=~/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+		python3 /opt/oscp_tools/dirsearch/dirsearch.py -f -e log,nsf,pl,sh,sql,swf,xml,xhtml,docx,xls,conf -x 503,520,429,400,302,301,300 -u $domain --wordlist /opt/oscp_tools/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt --plain-text-report=/opt/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
 
 	fi
 
 	if [[ $wordlist == "14" ]]; then
-		python3 ~/oscp_tools/dirsearch/dirsearch.py -f -e php,php1,php2,php3,php4,php5,php6,php7 -x 503,520,429,400 -u $domain --wordlist /root/oscp_tools/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt --plain-text-report=~/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+		python3 /opt/oscp_tools/dirsearch/dirsearch.py -f -e php,php1,php2,php3,php4,php5,php6,php7 -x 503,520,429,400 -u $domain --wordlist /opt/oscp_tools/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt --plain-text-report=/opt/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
 
 	fi
 
 	if [[ $wordlist == "15" ]]; then
-		python3 ~/oscp_tools/dirsearch/dirsearch.py -e php -x 503,520,429,400 -u $domain --wordlist /root/oscp_tools/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt --plain-text-report=~/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+		python3 /opt/oscp_tools/dirsearch/dirsearch.py -e php -x 503,520,429,400 -u $domain --wordlist /opt/oscp_tools/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt --plain-text-report=/opt/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
 
 	fi
 
 	if [[ $wordlist == "16" ]]; then
-		echo "Enter Wordlist Name [/root/oscp_tools/SecLists/Discovery/Web-Content/]:  "
+		echo "Enter Wordlist Name [/opt/oscp_tools/SecLists/Discovery/Web-Content/]:  "
 		read wordlist_var
 		echo "Enter Extension Types: "
 		read extension_var
-		python3 ~/oscp_tools/dirsearch/dirsearch.py -f -e $extension_var -x 503,520,429,400 -u $domain --wordlist /root/oscp_tools/SecLists/Discovery/Web-Content/$wordlist_var --plain-text-report=~/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
+		python3 /opt/oscp_tools/dirsearch/dirsearch.py -f -e $extension_var -x 503,520,429,400 -u $domain --wordlist /opt/oscp_tools/SecLists/Discovery/Web-Content/$wordlist_var --plain-text-report=/opt/oscp_tools/dirsearch/dir_results/$filename --threads 25 --request-by-hostname -r 
 
 	fi
 
